@@ -5,8 +5,6 @@
 import * as THREE from "three";
 import { onMounted } from "vue";
 
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-// import { Orbit } from "three/addons/controls/OrbitControls.js";
 
 const initMap = () => {
   // 三维场景
@@ -36,10 +34,13 @@ const initMap = () => {
   map?.appendChild(renderer.domElement);
   // document.body.appendChild(renderer.domElement);
 
-  const controls = new OrbitControls(camera, renderer.domElement);
-  controls.addEventListener("change", function () {
+  
+  function render() {
+    mesh.rotateY(0.01);
     renderer.render(scene, camera);
-  });
+    requestAnimationFrame(render);
+  }
+  render();
 };
 onMounted(() => {
   initMap();

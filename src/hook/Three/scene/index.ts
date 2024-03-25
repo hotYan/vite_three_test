@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { mesh } from "./mesh";
+// 三维场景
 const scene = new THREE.Scene();
 scene.add(mesh);
 

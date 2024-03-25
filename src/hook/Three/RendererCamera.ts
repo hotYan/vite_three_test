@@ -1,7 +1,7 @@
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+// import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
-const height = window.innerHeight - 23; //宽度
+const height = window.innerHeight; //宽度
 const width = window.innerWidth; //高度
 // 相机
 const camera = new THREE.PerspectiveCamera(30, width / height, 1, 3000);
@@ -11,5 +11,5 @@ camera.lookAt(0, 0, 0);
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(width, height);
 
-const controls = new OrbitControls(camera, renderer.domElement);
+// const controls = new OrbitControls(camera, renderer.domElement);
 export { renderer, camera };
