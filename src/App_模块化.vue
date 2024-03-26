@@ -3,7 +3,7 @@
 </template>
 <script setup lang="ts">
 import { onMounted } from "vue";
-import {renderer} from "./hook/Three/RenderLoop";
+import {renderer} from "./hook/模块化/RenderLoop";
 
 const initMap = () => {
  
