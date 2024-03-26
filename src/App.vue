@@ -3,7 +3,7 @@
 </template>
 <script setup lang="ts">
 import { onMounted } from "vue";
-import {renderer} from "./hook/加载GLTF格式模型/RenderLoop";
+import {renderer} from "./hook/glb/RenderLoop";
 
 const initMap = () => {
  
