@@ -3,7 +3,7 @@
 </template>
 <script setup lang="ts">
 import { onMounted } from "vue";
-import {renderer} from "./hook/glb/RenderLoop";
+import {renderer} from "./hook/CSS2DRenderer/RenderLoop";
 
 const initMap = () => {
  

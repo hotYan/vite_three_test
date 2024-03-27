@@ -18,6 +18,8 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(width, height);
 renderer.setPixelRatio(window.devicePixelRatio);//设置设备像素比率,防止Canvas画布输出模糊。
 renderer.setSize(width, height);
+
+renderer.setClearColor(0x005577, 1);//设置背景颜色
 // renderer.outputEncoding = THREE.sRGBEncoding;
 
 const controls = new OrbitControls(camera, renderer.domElement);

@@ -3,6 +3,8 @@ import { model } from "./model";
 // 三维场景
 const scene = new THREE.Scene();
 scene.add(model);
+
+scene.fog= new THREE.Fog(0x005577,-100,1000);
 /**
 * 光源设置
 */
