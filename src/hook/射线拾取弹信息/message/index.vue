@@ -1,5 +1,4 @@
 <template>
-  <div id="map"></div>
   <div
     id="messageTag"
     style="
@@ -89,68 +88,7 @@
     </div>
   </div>
 </template>
-<script setup lang="ts">
-import { onMounted } from "vue";
-import { renderer } from "./hook/射线拾取弹信息/RenderLoop";
-import { choose, chooseMesh } from "./hook/射线拾取弹信息/choose";
-import { label } from "./hook/射线拾取弹信息/message/index";
-import messageData from "./hook/射线拾取弹信息/message/messageData";
-import { scene } from "./hook/射线拾取弹信息/scene/index";
 
-const initMap = () => {
-  const map = document.getElementById("map");
-  map?.appendChild(renderer.domElement);
-};
-const idArr = [
-  "granaryName",
-  "temperature",
-  "grain",
-  "grainImg",
-  "weight",
-  "granaryHeight",
-  "grainHeight",
-];
-const initLael = () => {
-  const messageTag = label("messageTag");
-  scene.add(messageTag);
-  addEventListener("click", (e) => {
-    if (chooseMesh) {
-      messageTag.element.style.visibility = "hidden";
-    }
-    choose(e);
-    if (chooseMesh) {
-      idArr.forEach((id) => {
-        const dom = document.getElementById(id) as HTMLElement;
-        if (id === "grainImg") {
-          dom.src = messageData[chooseMesh.name][id];
-        } else {
-          dom.innerHTML = messageData[chooseMesh.name][id];
-        }
-      });
+<script setup lang="ts"></script>
 
-      messageTag.element.style.visibility = "visible"; //显示标签
-      // messageTag.position.copy(chooseMesh.getWorldPosition());//通过粮仓世界坐标设置标签位置
-      messageTag.position.copy(chooseMesh.point); //射线在粮仓表面拾取坐标
-
-      // 数字滚动动画
-      var weightDOM = document.getElementById("weight") as HTMLElement;
-      weightDOM.innerHTML = "";
-      var weightMax = messageData[chooseMesh.name]["weight"]; //粮仓重量
-      var weight = 0; //粮仓初始重量
-      var interval = setInterval(function () {
-        if (weight < weightMax) {
-          weight += Math.floor(weightMax / 50); //重量累加
-          document.getElementById("weight").innerHTML =
-            weight as unknown as string;
-        } else {
-          clearInterval(interval); //一旦达到粮食重量，取消周期性函数interval
-        }
-      }, 5);
-    }
-  });
-};
-onMounted(() => {
-  initMap();
-  initLael();
-});
-</script>
+<style lang="scss" scoped></style>
