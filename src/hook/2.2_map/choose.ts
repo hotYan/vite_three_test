@@ -5,7 +5,7 @@ import { meshArr } from "./scene/model";
 let chooseMesh: THREE.MeshLambertMaterial;
 function choose(event: any) {
   if (chooseMesh) {
-    chooseMesh.material.color.set(0xffffff); // 把上次选中的mesh设置为原来的颜色
+    // chooseMesh.material.color.set(0xffffff); // 把上次选中的mesh设置为原来的颜色
   }
   const Sx = event.clientX; //鼠标单击位置横坐标
   const Sy = event.clientY; //鼠标单击位置纵坐标
@@ -18,11 +18,12 @@ function choose(event: any) {
   var intersects = raycaster.intersectObjects(meshArr);
   if (intersects.length > 0) {
     chooseMesh = intersects[0].object as unknown as THREE.MeshLambertMaterial; //选中的模型
-    chooseMesh.material.color.set(0x00ffff); //选中改变颜色，这样材质颜色贴图.map和color颜色会相乘
+    // chooseMesh.material.color.set(0x00ffff); //选中改变颜色，这样材质颜色贴图.map和color颜色会相乘
     chooseMesh.point = intersects[0].point; //选中的点
   } else {
     chooseMesh = null;
   }
+  console.log("chooseMesh", chooseMesh);
 }
 
 export { choose, chooseMesh };

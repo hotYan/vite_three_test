@@ -41,9 +41,12 @@ css3DRenderer.domElement.style.position = "absolute";
 css3DRenderer.domElement.style.top = "0px";
 css3DRenderer.domElement.style.left = "0px";
 css3DRenderer.domElement.style.pointerEvents = "none";
-const create3DObject = (element: HTMLElement, id: string) => {
-  const object = new CSS3DObject(element);
-  object.name = id;
+document.body.appendChild(css3DRenderer.domElement);
+
+const create3DObject = (name: string) => {
+  const dom = document.getElementById(name);
+  dom!.style.pointerEvents = "none";
+  const object = new CSS3DObject(dom as HTMLElement);
   return object;
 };
 
@@ -54,9 +57,11 @@ css2DRenderer.domElement.style.position = "absolute";
 css2DRenderer.domElement.style.top = "0px";
 css2DRenderer.domElement.style.left = "0px";
 css2DRenderer.domElement.style.pointerEvents = "none";
-const create2DObject = (element: HTMLElement, id: string) => {
-  const object = new CSS2DObject(element);
-  object.name = id;
+document.body.appendChild(css2DRenderer.domElement);
+const create2DObject = (name: string) => {
+  const dom = document.getElementById(name) as HTMLElement;
+  dom!.style.pointerEvents = "none";
+  const object = new CSS2DObject(dom);
   return object;
 };
 // 创建一个控制器，用于控制相机运行
