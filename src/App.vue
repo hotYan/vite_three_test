@@ -3,7 +3,13 @@
   <div
     id="messageTag"
     class="label"
-    style="position: absolute; color: #fff; z-index: 2; font-size: 16px"
+    style="
+      visibility: hidden;
+      position: absolute;
+      color: #fff;
+      z-index: 2;
+      font-size: 16px;
+    "
   >
     名称:主机
   </div>
@@ -28,9 +34,11 @@ const initLabel = () => {
       messageTag.element.style.visibility = "hidden";
     }
     choose(e);
-    messageTag.element.style.visibility = "visible";
-    messageTag.element.innerHTML = "名称：" + chooseMesh.name;
-    messageTag.position.copy(chooseMesh.point);
+    if (chooseMesh && chooseMesh.name) {
+      messageTag.element.style.visibility = "visible";
+      messageTag.element.innerHTML = "名称：" + chooseMesh.name;
+      messageTag.position.copy(chooseMesh.point);
+    }
   });
 };
 onMounted(() => {

@@ -26,7 +26,7 @@ const getMaterialByType = (type: string, emissiveIntensity: number = 1) => {
   });
 };
 const loader = new GLTFLoader();
-loader.load("/VDU/host.glb", function (gltf: any) {
+loader.load("/VDU/host-v2.glb", function (gltf: any) {
   console.log("控制台查看gltf对象结构", gltf);
   //gltf.scene可以包含网格模型Mesh、光源Light等信息，至于gltf.scene是否包含光源，要看.gltf文件中是否有光源信息
   // console.log("gltf对象场景属性", gltf.scene);
@@ -45,7 +45,6 @@ loader.load("/VDU/host.glb", function (gltf: any) {
     }
     if (["cpu灯", "业务灯"].includes(object.name)) {
       object.material = getMaterialByType("#8f0202");
-      // currentAnimations =
     } else if (["cpu灯动画", "业务灯动画"].includes(object.name)) {
       object.material = getMaterialByType("#ff0000", 10);
       if (["cpu灯动画"].includes(object.name)) {

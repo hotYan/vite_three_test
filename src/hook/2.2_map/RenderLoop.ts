@@ -5,7 +5,7 @@ const render = () => {
   // mesh.rotateY(0.01);
 
   mixersArr.forEach((mixer) => {
-    // mixer.update(0.01);
+    mixer.update(0.01);
   });
   css2DRenderer.render(scene, camera);
   renderer.render(scene, camera);

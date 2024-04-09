@@ -13,16 +13,16 @@ scene.fog = new THREE.Fog(0x005577, -100, 1000);
  */
 
 // 平行光1
-var directionalLight = new THREE.DirectionalLight(0xffffff, 0.6);
+var directionalLight = new THREE.DirectionalLight(0xffffff, 1);
 directionalLight.position.set(0, -80, 400);
 scene.add(directionalLight);
 // 平行光2
-// var directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.6);
-// directionalLight2.position.set(0, 100, 0);
-// scene.add(directionalLight2);
+var directionalLight2 = new THREE.DirectionalLight(0xffffff, 10);
+directionalLight2.position.set(0, 300, 0);
+scene.add(directionalLight2);
 //环境光
-var ambient = new THREE.AmbientLight(0xffffff, 10);
-ambient.position.set(0, 100, 0);
+var ambient = new THREE.AmbientLight(0xffffff, 20);
+ambient.position.set(0, 400, 0);
 scene.add(ambient);
 
 // AxesHelper：辅助观察的坐标系
