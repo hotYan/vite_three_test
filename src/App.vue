@@ -16,10 +16,10 @@
 </template>
 <script setup lang="ts">
 import { onMounted } from "vue";
-import { renderer } from "./hook/2.2_map/RenderLoop";
-import { scene } from "./hook/2.2_map/scene/index";
-import { create2DObject } from "./hook/2.2_map/RendererCamera";
-import { choose, chooseMesh } from "./hook/2.2_map/choose";
+import { renderer } from "./hook/2.3_vud/RenderLoop";
+import { scene } from "./hook/2.3_vud/scene/index";
+import { create2DObject } from "./hook/2.3_vud/RendererCamera";
+import { choose, chooseMesh } from "./hook/2.3_vud/choose";
 const initMap = () => {
   //three.js执行渲染命令会输出一个canvas画布(HTML元素)，你可以插入到web页面中
   const map = document.getElementById("map");

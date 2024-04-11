@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-import { mesh } from "../../模块化/scene/mesh";
+// import { mesh } from "../../模块化/scene/mesh";
 // const geometry = new THREE.BoxGeometry(50, 50, 50);
 // const material = new THREE.MeshBasicMaterial({ color: 0x0000ff });
 // const mesh = new THREE.Mesh(geometry, material);
