@@ -9,8 +9,8 @@ import {
   CSS2DRenderer,
 } from "three/examples/jsm/renderers/CSS2DRenderer.js";
 const height = window.innerHeight; //宽度
-const width = window.innerWidth; //高度
-
+const width = window.innerWidth - 200; //高度
+console.log("height", height);
 // 相机
 const camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 1000);
 camera.position.set(0, 1, 5);
