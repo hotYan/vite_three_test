@@ -52,7 +52,7 @@ defineExpose();
   background-color: darkgrey;
 }
 .right_warp {
-  width: calc(100vw - 220px);
+  width: calc(100vw - 200px);
   height: 100vh;
   margin-left: 200px;
   background-color: darkcyan;

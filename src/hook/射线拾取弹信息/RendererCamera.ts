@@ -1,9 +1,8 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
-const height = window.innerHeight; //宽度
-const width = window.innerWidth; //高度
-
+const height = window.innerHeight;
+const width = window.innerWidth - 200;
 const camera = new THREE.PerspectiveCamera(40, width / height, 1, 3000);
 camera.position.set(318, 162, 204);
 camera.lookAt(0, 0, 0);

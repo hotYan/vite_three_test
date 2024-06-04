@@ -15,6 +15,10 @@ const staticRouter: RouteRecordRaw[] = [
         path: "map",
         component: () => import("../views/Map/index.vue"),
       },
+      {
+        path: "flame",
+        component: () => import("../App_射线拾取弹信息.vue"),
+      },
     ],
   },
 ];

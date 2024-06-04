@@ -2,6 +2,7 @@
   <div class="">
     <ul>
       <li
+        :class="[currentRoute === list.link ? 'active' : '']"
         v-for="list in Lists"
         :key="list.name"
         @click="handleClick(list.link)"
@@ -24,9 +25,12 @@ import {
   defineEmits,
   defineExpose,
 } from "vue";
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 
 const router = useRouter();
+const route = useRoute();
+console.log(route, 11);
+
 const handleClick = (link: string) => {
   router.push({ path: link });
 };
@@ -39,11 +43,16 @@ const Lists = [
     name: "平面地图",
     link: "/map",
   },
+  {
+    name: "粮仓",
+    link: "/flame",
+  },
 ];
 // === 响应式基础 ====
 const count = ref(0); //响应式的值
 const state = reactive({ count: 0 }); //响应式对象
 // ===  计算属性 ===
+const currentRoute = computed(() => route.path);
 const age = computed(() => state.count); //响应式计算属性
 // 可写计算属性
 const doubleAge = computed({
@@ -82,5 +91,9 @@ ul li {
   text-align: center;
   padding: 10px 0;
   color: #1677ff;
+}
+.active {
+  color: white;
+  background: #1677ff;
 }
 </style>
