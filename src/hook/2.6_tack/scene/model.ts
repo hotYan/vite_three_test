@@ -2,25 +2,25 @@ import * as THREE from "three";
 
 const model = new THREE.Object3D(); // const model = new THREE.Group();
 
-const spotTack = (r, post) => {
+const spotTack = (r, post, j) => {
   // 轨道
   const geometry = new THREE.RingGeometry(r, r + 1, 1000);
   // const geometry = new THREE.CircleGeometry(r, 1000);
   const material = new THREE.LineBasicMaterial({
-    color: 0x909497, //0xffffff, //0x1b4f72,
+    color: 0x3498db, //0x909497, //0xffffff, //0x1b4f72,
     transparent: true,
-    opacity: 0.5,
+    opacity: 0.6,
     side: THREE.DoubleSide,
   });
   const tack = new THREE.Mesh(geometry, material);
   tack.position.set(post[0], post[1], post[2]);
   tack.rotation.set(0.5 * Math.PI, 0, 0);
   model.add(tack);
-  renderCicle(r, post);
+  renderCicle(r, post, j);
 };
-const renderCicle = (r, post) => {
-  const outerRadius = r + 1;
-  const innerRadius = r - 50;
+const renderCicle = (r, post, j) => {
+  const outerRadius = r;
+  const innerRadius = [4, 2].includes(j) ? r - 80 : r - 30;
   // const startColor = new THREE.Color(0x1b4f72);
   // const endColor = new THREE.Color(0x1b4f78);
   const vertexShader = `
@@ -62,15 +62,17 @@ const renderCicle = (r, post) => {
   const circleLoop = new THREE.Mesh(geometry1, material1);
   // circleLoop.position.set(post[0], post[1] + 4 * r - 20, post[2]);
   // circleLoop.rotation.set(1 * Math.PI, 0, 0);
-  circleLoop.position.set(post[0], post[1] - 1, post[2]);
+  circleLoop.position.set(post[0], post[1], post[2]);
   circleLoop.rotation.set(0.5 * Math.PI, 0, 0);
   model.add(circleLoop);
 };
 const renderTack = (minR, maxR, post, num = 5) => {
+  let j = 0;
   for (let i = maxR; i >= minR; i -= (maxR - minR) / num) {
+    j += 1;
     post[1] += -3;
     console.log(post, 2);
-    spotTack(i, post);
+    spotTack(i, post, j);
   }
 };
 renderTack(50, 400, [0, 0, 0]);
