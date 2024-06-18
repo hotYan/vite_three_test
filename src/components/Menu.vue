@@ -46,6 +46,9 @@ const Lists = [
   {
     name: "粮仓",
     link: "/flame",
+  }, {
+    name: "太阳系轨道",
+    link: "/tack",
   },
 ];
 // === 响应式基础 ====

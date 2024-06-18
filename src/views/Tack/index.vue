@@ -3,16 +3,13 @@
 </template>
 <script setup lang="ts">
 import { onMounted } from "vue";
-import { renderer } from "./hook/2.6_tack/RenderLoop";
-import { choose } from "./hook/2.6_tack/choose";
+import { renderer } from "../../hook/2.6_tack/RenderLoop";
 const initMap = () => {
   //three.js执行渲染命令会输出一个canvas画布(HTML元素)，你可以插入到web页面中
   const map = document.getElementById("map");
   map?.appendChild(renderer.domElement);
-  // document.body.appendChild(renderer.domElement);
 };
 onMounted(() => {
   initMap();
-  addEventListener("click", choose);
 });
 </script>
