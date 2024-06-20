@@ -2,10 +2,10 @@
   <div class="">
     <ul>
       <li
-        :class="[currentRoute === list.link ? 'active' : '']"
+        :class="[currentRoute === list.path ? 'active' : '']"
         v-for="list in Lists"
         :key="list.name"
-        @click="handleClick(list.link)"
+        @click="handleClick(list.path)"
       >
         {{ list.name }}
       </li>
@@ -30,27 +30,21 @@ import { useRouter, useRoute } from "vue-router";
 const router = useRouter();
 const route = useRoute();
 console.log(route, 11);
+console.log(router, 22);
 
-const handleClick = (link: string) => {
-  router.push({ path: link });
+const handleClick = (path: string) => {
+  router.push({ path });
 };
-const Lists = [
-  {
-    name: "3D地球",
-    link: "/earth",
-  },
-  {
-    name: "平面地图",
-    link: "/map",
-  },
-  {
-    name: "粮仓",
-    link: "/flame",
-  }, {
-    name: "太阳系轨道",
-    link: "/tack",
-  },
-];
+const Lists = computed(() => {
+  const arr = router.options.routes[0].children.map((item) => {
+    return {
+      name: item.name,
+      path: item.path,
+    };
+  });
+  return arr;
+});
+
 // === 响应式基础 ====
 const count = ref(0); //响应式的值
 const state = reactive({ count: 0 }); //响应式对象
