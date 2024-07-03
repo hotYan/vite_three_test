@@ -36,13 +36,14 @@ const handleClick = (path: string) => {
   router.push({ path });
 };
 const Lists = computed(() => {
-  const arr = router.options.routes[0].children.map((item) => {
+  const arr = router.options.routes[0].children!.map((item) => {
     return {
       name: item.name,
-      path: item.path,
+      path: "/" + item.path,
+      hidden: item.meta && item.meta.hidden ? item.meta.hidden : false,
     };
   });
-  return arr;
+  return arr.filter((i) => i.hidden !== true);
 });
 
 // === 响应式基础 ====
@@ -88,6 +89,12 @@ ul li {
   text-align: center;
   padding: 10px 0;
   color: #1677ff;
+}
+
+li:hover {
+  cursor: pointer;
+  color: white;
+  background: #1677ff;
 }
 .active {
   color: white;

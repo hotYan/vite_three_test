@@ -12,23 +12,23 @@ scene.add(model);
  * 光源设置
  */
 
-// 平行光1
-var directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-directionalLight.position.set(0, -80, 400);
-scene.add(directionalLight);
-// 平行光2
-var directionalLight2 = new THREE.DirectionalLight(0xffffff, 10);
-directionalLight2.position.set(0, 300, 0);
-scene.add(directionalLight2);
-//环境光
-var ambient = new THREE.AmbientLight(new THREE.Color(0xffffff));
-// ambient.position.set(0, 400, 0);
-scene.add(ambient);
+// // 平行光1
+// var directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+// directionalLight.position.set(0, -80, 400);
+// scene.add(directionalLight);
+// // 平行光2
+// var directionalLight2 = new THREE.DirectionalLight(0xffffff, 10);
+// directionalLight2.position.set(0, 300, 0);
+// scene.add(directionalLight2);
+// //环境光
+// var ambient = new THREE.AmbientLight(new THREE.Color(0xffffff));
+// // ambient.position.set(0, 400, 0);
+// scene.add(ambient);
 
-const pointLight = new THREE.PointLight(new THREE.Color(0xffffff), 2, 1, 0);
-pointLight.visible = true;
-pointLight.position.set(0, 0, 0);
-scene.add(pointLight);
+// const pointLight = new THREE.PointLight(new THREE.Color(0xffffff), 2, 1, 0);
+// pointLight.visible = true;
+// pointLight.position.set(0, 0, 0);
+// scene.add(pointLight);
 
 // AxesHelper：辅助观察的坐标系
 const axesHelper = new THREE.AxesHelper(250);

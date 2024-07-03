@@ -22,7 +22,7 @@ const renderer = new THREE.WebGLRenderer({
   alpha: true, // 开启透明度
   // preserveDrawingBuffer: true, // 保留绘制缓冲区
   // precision: "highp",
-  // logarithmicDepthBuffer: true,
+  logarithmicDepthBuffer: true,
 });
 renderer.setPixelRatio(window.devicePixelRatio); //设置设备像素比率,防止Canvas画布输出模糊。
 renderer.setSize(width, height);

@@ -137,15 +137,32 @@ loader.load("/VDU/nt.glb", (gltf) => {
   model.add(gltf.scene);
 });
 console.log("model", model);
-//  const texture = new THREE.TextureLoader().load('/GLTFModel/model_img3.png');
 
-//  const geometry = new THREE.PlaneGeometry(185,260);
-//  const material = new THREE.MeshLambertMaterial({
-//   side:THREE.DoubleSide,
-//   map:texture
-//  });
-//  const plane = new THREE.Mesh(geometry,material);
-//  plane.position.x = 200;
-//  plane.rotateX(Math.PI/2);
-//  model.add(plane);
+function createLiuBianQiu() {
+  const texture = new THREE.TextureLoader().load("/c4.png");
+  const geometry = new THREE.DodecahedronGeometry(); //SphereGeometry(0.1, 32, 32);
+  const material = new THREE.MeshBasicMaterial({ map: texture });
+
+  // 创建网格对象
+  const mesh = new THREE.Mesh(geometry, material);
+  mesh.position.set(0, 0, 10);
+  // 将网格对象添加到场景中
+  model.add(mesh);
+}
+createLiuBianQiu();
+// const texture = new THREE.TextureLoader().load("/c4.png");
+
+// const geometry = new THREE.SphereGeometry(5, 32, 32);
+
+// // geometry.addEdges(edges);s
+// const material = new THREE.MeshBasicMaterial({
+//   side: THREE.DoubleSide,
+//   // map: texture,
+//   color: 0x00ff00,
+// });
+// const plane = new THREE.Mesh(geometry, material);
+// plane.position.z = 20;
+// //  plane.rotateX(Math.PI/2);
+// model.add(plane);
+
 export { model, mixersArr, meshArr };

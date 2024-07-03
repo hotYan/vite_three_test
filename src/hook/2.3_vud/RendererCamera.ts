@@ -70,7 +70,7 @@ controls.target.set(0, 0, 0);
 controls.rotateSpeed = 0.1;
 controls.dampingFactor = 0.1;
 controls.enableDamping = true;
-controls.maxDistance = 20;
+// controls.maxDistance = 20;
 controls.minDistance = 0;
 controls.maxPolarAngle = (90 / 360) * 2 * Math.PI;
 controls.minPolarAngle = 0;

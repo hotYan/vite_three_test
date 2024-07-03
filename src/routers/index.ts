@@ -31,6 +31,12 @@ const staticRouter: RouteRecordRaw[] = [
         path: "fire",
         name: "火焰",
         component: () => import("../App_失火提醒.vue"),
+        meta: { hidden: true },
+      },
+      {
+        path: "VDU",
+        name: "主机模型",
+        component: () => import("../App_2.3_vud.vue"),
       },
     ],
   },

@@ -1,5 +1,5 @@
 import * as THREE from "three";
-
+import { label } from "./label";
 const model = new THREE.Object3D(); // const model = new THREE.Group();
 
 const spotTack = (r, post, j) => {
@@ -12,6 +12,7 @@ const spotTack = (r, post, j) => {
     opacity: 0.6,
     side: THREE.DoubleSide,
   });
+
   const tack = new THREE.Mesh(geometry, material);
   tack.position.set(post[0], post[1], post[2]);
   tack.rotation.set(0.5 * Math.PI, 0, 0);
@@ -71,9 +72,10 @@ const renderTack = (minR, maxR, post, num = 5) => {
   for (let i = maxR; i >= minR; i -= (maxR - minR) / num) {
     j += 1;
     post[1] += -3;
-    console.log(post, 2);
     spotTack(i, post, j);
   }
+  const l = label();
+  l.position.set(0, 0, 0);
 };
 renderTack(50, 400, [0, 0, 0]);
 
