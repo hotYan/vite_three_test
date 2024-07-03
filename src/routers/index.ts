@@ -15,7 +15,7 @@ const staticRouter: RouteRecordRaw[] = [
       {
         path: "map",
         name: "平面地图",
-        component: () => import("../views/Map/index.vue"),
+        component: () => import("../hook/2.5.1_map/index.vue"),
       },
       {
         path: "flame",
@@ -25,7 +25,7 @@ const staticRouter: RouteRecordRaw[] = [
       {
         path: "tack",
         name: "太阳系轨道",
-        component: () => import("../views/Tack/index.vue"),
+        component: () => import("../hook/2.6_tack/index.vue"),
       },
       {
         path: "fire",
@@ -37,6 +37,12 @@ const staticRouter: RouteRecordRaw[] = [
         path: "VDU",
         name: "主机模型",
         component: () => import("../App_2.3_vud.vue"),
+        meta: { hidden: true },
+      },
+      {
+        path: "sea_sky",
+        name: "海天一色",
+        component: () => import("../hook/2.7_sea_sky/index.vue"),
       },
     ],
   },
