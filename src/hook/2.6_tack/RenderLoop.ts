@@ -16,7 +16,6 @@ render();
 const resizeFn = () => {
   const w = window.innerWidth - 200;
   const h = window.innerHeight;
-  console.log(w, h);
   css2DRenderer.setSize(w, h);
   css3DRenderer.setSize(w, h);
   renderer.setSize(w, h);
