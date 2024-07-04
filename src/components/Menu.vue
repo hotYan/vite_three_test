@@ -88,16 +88,17 @@ ul li {
   list-style-type: none;
   text-align: center;
   padding: 10px 0;
-  color: #1677ff;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 li:hover {
   cursor: pointer;
-  color: white;
-  background: #1677ff;
+  color: #ffffff;
+  /* background: #1677ff; */
 }
 .active {
-  color: white;
+  color: #ffffff;
   background: #1677ff;
+  border-radius: 4px;
 }
 </style>
