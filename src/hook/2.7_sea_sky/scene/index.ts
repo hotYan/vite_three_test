@@ -6,6 +6,7 @@ const scene = new THREE.Scene();
 // scene.autoUpdate = true;
 scene.background = new Color().setHex(0x020917); //0x020917;
 scene.add(model);
+
 // console.log("scene", scene);
 // scene.fog = new THREE.Fog(0x005577, -100, 1000);
 /**

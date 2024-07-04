@@ -65,7 +65,12 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.target.set(0, 0, 0);
 controls.rotateSpeed = 0.1;
 controls.dampingFactor = 0.1;
+controls.maxDistance = 600;
+controls.minDistance = 40;
+controls.maxPolarAngle = 89.5 * (Math.PI / 180);
+// controls.minPolarAngle = 0;
 
+console.log("controls", controls);
 export {
   renderer,
   css2DRenderer,
@@ -73,4 +78,5 @@ export {
   css3DRenderer,
   create3DObject,
   camera,
+  controls,
 };
