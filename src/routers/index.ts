@@ -44,6 +44,11 @@ const staticRouter: RouteRecordRaw[] = [
         name: "海天一色",
         component: () => import("../hook/2.7_sea_sky/index.vue"),
       },
+      {
+        path: "rain",
+        name: "模拟下雨",
+        component: () => import("../hook/2.8_rain/index.vue"),
+      },
     ],
   },
 ];
