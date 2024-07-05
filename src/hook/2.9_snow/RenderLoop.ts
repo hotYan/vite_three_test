@@ -1,3 +1,4 @@
+import * as THREE from "three";
 import { scene } from "./scene/index";
 import {
   renderer,
@@ -17,12 +18,17 @@ const resizeFn = () => {
 };
 
 const render = () => {
-  // model.children.forEach((item) => {
-  //   item.position.y -= Math.random() + 1;
-  //   if (item.position.y <= -50) {
-  //     item.position.y = 500;
-  //   }
-  // });
+  const time = Date.now() * 0.00005;
+
+  for (let i = 0; i < scene.children.length; i++) {
+    // console.log("scene", scene.children[i]);
+    if (scene.children[i].type === "Group") {
+      scene.children[i].children.forEach((item) => {
+        item.rotation.y = time * (i < 4 ? i + 1 : -(i + 1));
+      });
+    }
+  }
+
   renderer.render(scene, camera);
   requestAnimationFrame(render);
 };

@@ -15,8 +15,18 @@ const model = new THREE.Group();
 //   }
 // }
 
-const texture = new THREE.TextureLoader().load("/textures/Water.jpeg");
-const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
+const texture = new THREE.TextureLoader().load(
+  "/textures/Water.jpeg",
+  (texture) => {
+    texture.colorSpace = THREE.SRGBColorSpace;
+  }
+);
+const spriteMaterial = new THREE.SpriteMaterial({
+  map: texture,
+  transparent: true,
+  depthTest: false,
+  blending: THREE.AdditiveBlending,
+});
 
 for (let i = 0; i < 16000; i++) {
   // 精灵模型共享材质
