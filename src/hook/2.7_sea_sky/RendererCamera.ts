@@ -19,11 +19,12 @@ camera.lookAt(new THREE.Vector3(0, 0, 0));
 // WebGL渲染器
 const renderer = new THREE.WebGLRenderer({
   antialias: true, //开启锯齿
+  // useLegacyLights: true,
   // physicallyCorrectLights: true,
 });
 renderer.setPixelRatio(window.devicePixelRatio * 2); //设置设备像素比率,防止Canvas画布输出模糊。
 renderer.setSize(width, height);
-// renderer.shadowMap.enabled = true; // 开启阴影地图功能
+renderer.shadowMap.enabled = true; // 开启阴影地图功能
 // renderer.shadowMap.type = THREE.VSMShadowMap; // 设置阴影地图的类型为VSM阴影地图
 // renderer.autoClear = true; // 设置渲染器自动清除
 
@@ -65,7 +66,7 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.target.set(0, 0, 0);
 controls.rotateSpeed = 0.1;
 controls.dampingFactor = 0.1;
-controls.maxDistance = 600;
+// controls.maxDistance = 600;
 controls.minDistance = 40;
 controls.maxPolarAngle = 89.5 * (Math.PI / 180);
 // controls.minPolarAngle = 0;

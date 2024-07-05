@@ -16,16 +16,21 @@ const water = new Water(new THREE.PlaneGeometry(10000, 10000), {
       texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
     }
   ),
+  sunColor: 0xffffff,
   waterColor: 0x0072ff,
-  sunDirection: sun.clone().normalize(),
+  alpha: 1.0,
+  distortionScale: 20,
+  fog: false,
+  // sunDirection: sun.clone().normalize(),
 });
+water.material.uniforms["sunDirection"].value.copy(sun).normalize();
 water.rotation.x = -Math.PI / 2;
 model.add(water);
 
 // 天空
 const sky = new Sky();
 sky.scale.setScalar(10000);
-sky.material.uniforms["sunPosition"].value.copy(sun);
+sky.material.uniforms["sunPosition"].value.copy(sun).normalize();
 sky.material.uniforms["turbidity"].value = 1;
 sky.material.uniforms["rayleigh"].value = 1.5;
 sky.material.uniforms["mieCoefficient"].value = 0.005;
@@ -42,5 +47,6 @@ const cube = new THREE.Mesh(
   })
 );
 model.add(cube);
+const clock = new THREE.Clock();
 
-export { model, sun, water, sky, cube };
+export { model, sun, water, sky, cube, clock };

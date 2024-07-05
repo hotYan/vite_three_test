@@ -1,12 +1,13 @@
 import * as THREE from "three";
 import * as Dat from "dat.gui";
 import { scene } from "./scene/index";
-import { sun, water, sky, cube } from "./scene/model";
+import { sun, water, sky, cube, clock } from "./scene/model";
 import {
   renderer,
   camera,
   css2DRenderer,
   css3DRenderer,
+  controls,
 } from "./RendererCamera";
 const waterParams = { speed: 1.0, alpha: 1.0, distortionScale: 20 };
 // 让环境的光照到圆球表面
@@ -82,21 +83,22 @@ const resizeFn = () => {
   camera.updateProjectionMatrix();
 };
 
-// const timer = setInterval(() => {
-//   const target = RenderPMREMGenerator();
-//   if (target) {
-//     scene.environment = target.texture;
-//   }
-// }, 3000);
+//将要创建的纹理对象，定义目标纹理的一些参数
+const cubeRenderTarget = new THREE.WebGLCubeRenderTarget(256);
+const cubeCamera = new THREE.CubeCamera(1, 10, cubeRenderTarget);
+
 const render = () => {
+  controls.update(clock.getDelta());
+
   water.material.uniforms.time.value += waterParams.speed / 60.0;
-  cube.position.y = Math.sin(Date.now() * 0.001) * 20 + 5;
+  const now = Date.now();
+  cube.position.y = Math.sin(now * 0.001) * 20 + 5;
   cube.rotation.x += 0.01;
   cube.rotation.z += 0.01;
-  // css2DRenderer.render(scene, camera);
-  // css3DRenderer.render(scene, camera);
   renderer.render(scene, camera);
   requestAnimationFrame(render);
+
+  cubeCamera.update(renderer, scene);
 };
 render();
 const target = RenderPMREMGenerator();
