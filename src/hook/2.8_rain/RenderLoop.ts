@@ -17,12 +17,12 @@ const resizeFn = () => {
 };
 
 const render = () => {
-  // model.children.forEach((item) => {
-  //   item.position.y -= Math.random() + 1;
-  //   if (item.position.y <= -50) {
-  //     item.position.y = 500;
-  //   }
-  // });
+  model.children.forEach((item) => {
+    item.position.y -= Math.random() + 1;
+    if (item.position.y <= -50) {
+      item.position.y = 500;
+    }
+  });
   renderer.render(scene, camera);
   requestAnimationFrame(render);
 };

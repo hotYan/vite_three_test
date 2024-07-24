@@ -90,7 +90,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { onMounted } from "vue";
+import { onMounted, onBeforeUnmount } from "vue";
 import { renderer } from "./hook/射线拾取弹信息/RenderLoop";
 import { choose, chooseMesh } from "./hook/射线拾取弹信息/choose";
 import { label } from "./hook/射线拾取弹信息/message/index";
@@ -110,8 +110,9 @@ const idArr = [
   "granaryHeight",
   "grainHeight",
 ];
+let messageTag;
 const initLael = () => {
-  const messageTag = label("messageTag");
+  messageTag = label("messageTag");
   scene.add(messageTag);
   addEventListener("click", (e) => {
     if (chooseMesh) {
@@ -121,10 +122,12 @@ const initLael = () => {
     if (chooseMesh) {
       idArr.forEach((id) => {
         const dom = document.getElementById(id) as HTMLElement;
-        if (id === "grainImg") {
-          dom.src = messageData[chooseMesh.name][id];
-        } else {
-          dom.innerHTML = messageData[chooseMesh.name][id];
+        if (dom) {
+          if (id === "grainImg") {
+            dom.src = messageData[chooseMesh.name][id];
+          } else {
+            dom.innerHTML = messageData[chooseMesh.name][id];
+          }
         }
       });
 
@@ -134,14 +137,18 @@ const initLael = () => {
 
       // 数字滚动动画
       var weightDOM = document.getElementById("weight") as HTMLElement;
-      weightDOM.innerHTML = "";
+      if (weightDOM) {
+        weightDOM.innerHTML = "";
+      }
       var weightMax = messageData[chooseMesh.name]["weight"]; //粮仓重量
       var weight = 0; //粮仓初始重量
       var interval = setInterval(function () {
         if (weight < weightMax) {
           weight += Math.floor(weightMax / 50); //重量累加
-          document.getElementById("weight").innerHTML =
-            weight as unknown as string;
+          const dom = document.getElementById("weight");
+          if (dom) {
+            dom.innerHTML = weight as unknown as string;
+          }
         } else {
           clearInterval(interval); //一旦达到粮食重量，取消周期性函数interval
         }
@@ -152,5 +159,12 @@ const initLael = () => {
 onMounted(() => {
   initMap();
   initLael();
+});
+onBeforeUnmount(() => {
+  console.log("messageTag", messageTag);
+  messageTag && messageTag.removeFromParent();
+  console.log("onBeforeUnmount");
+  renderer.dispose();
+  renderer.domElement.remove();
 });
 </script>
