@@ -54,6 +54,11 @@ const staticRouter: RouteRecordRaw[] = [
         name: "模拟下雪",
         component: () => import("../hook/2.9_snow/index.vue"),
       },
+      {
+        path: "modelchange",
+        name: "模型切换",
+        component: () => import("../hook/2.10_change/index.vue"),
+      },
     ],
   },
 ];
