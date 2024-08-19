@@ -13,7 +13,7 @@ const width = window.innerWidth - 200; //高度
 console.log("height", height);
 // 相机
 const camera = new THREE.PerspectiveCamera(30, width / height, 1, 2000);
-camera.position.copy(new THREE.Vector3(30, 30, 100));
+camera.position.copy(new THREE.Vector3(30, 30, 1000));
 // camera.lookAt(new THREE.Vector3(0, 0, 0));
 
 // WebGL渲染器

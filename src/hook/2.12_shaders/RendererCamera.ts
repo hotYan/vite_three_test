@@ -12,8 +12,8 @@ const height = window.innerHeight; //宽度
 const width = window.innerWidth - 200; //高度
 console.log("height", height);
 // 相机
-const camera = new THREE.PerspectiveCamera(30, width / height, 1, 2000);
-camera.position.copy(new THREE.Vector3(30, 30, 100));
+const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 100);
+camera.position.copy(new THREE.Vector3(0.15, 0, 0.65));
 // camera.lookAt(new THREE.Vector3(0, 0, 0));
 
 // WebGL渲染器
@@ -24,7 +24,7 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setPixelRatio(window.devicePixelRatio * 2); //设置设备像素比率,防止Canvas画布输出模糊。
 renderer.setSize(width, height);
-renderer.shadowMap.enabled = true; // 开启阴影地图功能
+// renderer.shadowMap.enabled = true; // 开启阴影地图功能
 // renderer.shadowMap.type = THREE.VSMShadowMap; // 设置阴影地图的类型为VSM阴影地图
 // renderer.autoClear = true; // 设置渲染器自动清除
 

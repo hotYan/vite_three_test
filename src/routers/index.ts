@@ -59,15 +59,23 @@ const staticRouter: RouteRecordRaw[] = [
         name: "模型切换",
         component: () => import("../hook/2.10_change/index.vue"),
       },
-      // {
-      //   path: "modelchange_1",
-      //   name: "模型切换_1",
-      //   component: () => import("../hook/2.10_change_1/index.vue"),
-      // },
+      {
+        path: "modelchange_1",
+        name: "模型切换_1",
+        component: () => import("../hook/2.10_change_1/index.vue"),
+        meta: { hidden: true },
+      },
       {
         path: "house",
         name: "室内全景",
         component: () => import("../hook/2.11_house/index.vue"),
+        meta: { hidden: true },
+      },
+      {
+        path: "shaders",
+        name: "着色器",
+        component: () => import("../hook/2.12_shaders/index.vue"),
+        // meta: { hidden: true },
       },
     ],
   },
