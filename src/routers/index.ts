@@ -21,6 +21,7 @@ const staticRouter: RouteRecordRaw[] = [
         path: "flame",
         name: "粮仓",
         component: () => import("../App_射线拾取弹信息.vue"),
+        meta: { hidden: true },
       },
       {
         path: "tack",
@@ -43,16 +44,19 @@ const staticRouter: RouteRecordRaw[] = [
         path: "sea_sky",
         name: "海天一色",
         component: () => import("../hook/2.7_sea_sky/index.vue"),
+        meta: { hidden: true },
       },
       {
         path: "sprite_rain",
         name: "模拟下雨",
         component: () => import("../hook/2.8_rain/index.vue"),
+        meta: { hidden: true },
       },
       {
         path: "points",
         name: "模拟下雪",
         component: () => import("../hook/2.9_snow/index.vue"),
+        meta: { hidden: true },
       },
       {
         path: "modelchange",
@@ -73,8 +77,14 @@ const staticRouter: RouteRecordRaw[] = [
       },
       {
         path: "shaders",
-        name: "着色器",
+        name: "飘动的旗帜",
         component: () => import("../hook/2.12_shaders/index.vue"),
+        meta: { hidden: true },
+      },
+      {
+        path: "shaders_1",
+        name: "旷息之野神庙铁球",
+        component: () => import("../hook/2.12_shaders_1/index.vue"),
         // meta: { hidden: true },
       },
     ],
