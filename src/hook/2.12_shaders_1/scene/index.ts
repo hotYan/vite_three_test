@@ -24,7 +24,7 @@ scene.add(directionalLight);
 // directionalLight2.position.set(0, 300, 0);
 // scene.add(directionalLight2);
 //环境光
-var ambient = new THREE.AmbientLight(new THREE.Color(0xffffff), 1);
+var ambient = new THREE.AmbientLight(new THREE.Color(0x404040), 1);
 // ambient.position.set(0, 400, 0);
 scene.add(ambient);
 

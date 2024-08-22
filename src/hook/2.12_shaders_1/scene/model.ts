@@ -57,7 +57,7 @@ void main() {
   gl_FragColor = vec4(mix(vec3(0),vec3(vUv,0.2),str),1.0);
 }
 `;
-const geometry = new THREE.SphereGeometry(10, 32, 32);
+const geometry = new THREE.IcosahedronGeometry(1, 64);
 
 const material = new THREE.ShaderMaterial({
   vertexShader,
@@ -70,7 +70,7 @@ const material = new THREE.ShaderMaterial({
   // },
   // wireframe: true,
   side: THREE.DoubleSide,
-  transparent: true,
+  // transparent: true,
 });
 const mesh = new THREE.Mesh(geometry, material);
 // mesh.scale.y = 2 / 3;

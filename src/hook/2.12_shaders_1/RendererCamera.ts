@@ -12,13 +12,14 @@ const height = window.innerHeight; //宽度
 const width = window.innerWidth - 200; //高度
 console.log("height", height);
 // 相机
-const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 100);
+const camera = new THREE.PerspectiveCamera(75, width / height, 1, 100);
 camera.position.copy(new THREE.Vector3(10, 0, 18));
 // camera.lookAt(new THREE.Vector3(0, 0, 0));
 
 // WebGL渲染器
 const renderer = new THREE.WebGLRenderer({
   antialias: true, //开启锯齿
+  alpha: true,
   // useLegacyLights: true,
   // physicallyCorrectLights: true,
 });
@@ -26,7 +27,11 @@ renderer.setPixelRatio(window.devicePixelRatio * 2); //设置设备像素比率,
 renderer.setSize(width, height);
 // renderer.shadowMap.enabled = true; // 开启阴影地图功能
 // renderer.shadowMap.type = THREE.VSMShadowMap; // 设置阴影地图的类型为VSM阴影地图
-// renderer.autoClear = true; // 设置渲染器自动清除
+renderer.autoClear = false; // 设置渲染器自动清除
+renderer.setClearAlpha(0);
+// renderer.physicallyCorrectLights = true;
+renderer.toneMapping = THREE.CineonToneMapping;
+renderer.toneMappingExposure = 2;
 
 // renderer.setClearColor(0x000000, 0.1); //设置背景颜色
 // renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -63,7 +68,8 @@ renderer.setSize(width, height);
 // };
 // 创建一个控制器，用于控制相机运行
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.target.set(0, 0, 0);
+controls.enableDamping = true;
+// controls.target.set(0, 0, 0);
 // controls.rotateSpeed = 0.1;
 // controls.dampingFactor = 0.1;
 // // controls.maxDistance = 600;
