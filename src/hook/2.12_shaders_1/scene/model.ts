@@ -73,6 +73,7 @@ const material = new THREE.ShaderMaterial({
   // transparent: true,
 });
 const mesh = new THREE.Mesh(geometry, material);
+// mesh.position.set(5, 0, 0);
 // mesh.scale.y = 2 / 3;
 model.add(mesh);
 export { model, mesh };

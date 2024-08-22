@@ -13,7 +13,7 @@ const width = window.innerWidth - 200; //高度
 console.log("height", height);
 // 相机
 const camera = new THREE.PerspectiveCamera(75, width / height, 1, 100);
-camera.position.copy(new THREE.Vector3(10, 0, 18));
+camera.position.copy(new THREE.Vector3(2, 0, 2));
 // camera.lookAt(new THREE.Vector3(0, 0, 0));
 
 // WebGL渲染器
@@ -68,7 +68,7 @@ renderer.toneMappingExposure = 2;
 // };
 // 创建一个控制器，用于控制相机运行
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true;
+// controls.enableDamping = true;
 // controls.target.set(0, 0, 0);
 // controls.rotateSpeed = 0.1;
 // controls.dampingFactor = 0.1;
