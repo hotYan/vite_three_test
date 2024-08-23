@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { scene } from "./scene/index";
-import { renderer, controls, camera } from "./RendererCamera";
+import { renderer, camera } from "./RendererCamera";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
@@ -59,10 +59,8 @@ const resizeFn = () => {
 };
 // const clock = new THREE.Clock();
 const render = () => {
-  // mesh && (mesh.rotation.y += 0.01);
-  // mesh && (mesh.rotation.x += 0.005);
-
-  controls.update();
+  mesh && (mesh.rotation.y += 0.01);
+  mesh && (mesh.rotation.x += 0.005);
   renderer.render(scene, camera);
   requestAnimationFrame(render);
   bloomComposer && bloomComposer.render(); //重点！！！在requestAnimationFrame周后调用才有效
