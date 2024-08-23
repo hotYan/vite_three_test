@@ -67,7 +67,7 @@ const portalMaterial = new THREE.ShaderMaterial({
   vertexShader: portalVertexShader,
 });
 const portal = new THREE.Mesh(portalGeometry, portalMaterial);
-// portal.layers.set(1);
+portal.layers.set(0);
 model.add(portal);
 
 let meshModel;
@@ -86,9 +86,8 @@ loader.load("/2.12_shaders_2/rickAndMorty.glb", (mesh) => {
     mesh.scene.rotation.y = Math.PI;
     model.add(mesh.scene);
     // 设置层级
-    // mesh.scene.layers.set(0);
+    mesh.scene.layers.set(1);
     meshModel = mesh.scene;
-    console.log("meshModel", meshModel);
   }
 });
 

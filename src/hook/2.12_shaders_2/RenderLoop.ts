@@ -79,24 +79,26 @@ const clock = new THREE.Clock();
 const render = (date = Date.now()) => {
   updateShaderMaterial(date);
   // bloomComposer && bloomComposer.render();
-  // renderer.clear();
-  // camera.layers.set(1);
+  renderer.clear();
+  camera.layers.set(1);
 
-  // renderer.clearDepth();
-  // camera.layers.set(0);
+  renderer.clearDepth();
+  camera.layers.set(0);
+
+  const elapsedTime = clock.getElapsedTime();
+  const ghost1Angle = elapsedTime * 0.5;
+  if (meshModel) {
+    meshModel.rotation.x = Math.cos(ghost1Angle) * 0.2;
+    meshModel.rotation.z = Math.sin(ghost1Angle) * 0.1;
+    meshModel.position.z += Math.cos(ghost1Angle) * 0.005;
+  }
+  const scale = Math.cos(ghost1Angle) * 2 + 3;
+  portal && portal.scale.set(scale, scale, scale);
+
+  // bloomComposer &&
   renderer.render(scene, camera);
-
-  // const elapsedTime = clock.getElapsedTime();
-  // const ghost1Angle = elapsedTime * 0.5;
-  // if (meshModel) {
-  //   meshModel.rotation.x = Math.cos(ghost1Angle) * 0.2;
-  //   meshModel.rotation.z = Math.sin(ghost1Angle) * 0.1;
-  //   meshModel.position.z += Math.cos(ghost1Angle) * 0.005;
-  // }
-  // const scale = Math.cos(ghost1Angle) * 2 + 3;
-  // portal && portal.scale.set(scale, scale, scale);
+  bloomComposer.render();
   requestAnimationFrame(render);
-  // bloomComposer && bloomComposer.render();
 };
 render();
 export { renderer, resizeFn };

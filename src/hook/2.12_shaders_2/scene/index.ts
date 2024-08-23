@@ -27,6 +27,6 @@ const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
 scene.add(ambientLight);
 
 // AxesHelper：辅助观察的坐标系
-const axesHelper = new THREE.AxesHelper(250);
-scene.add(axesHelper);
+// const axesHelper = new THREE.AxesHelper(250);
+// scene.add(axesHelper);
 export { scene };

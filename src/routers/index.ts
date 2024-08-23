@@ -85,11 +85,11 @@ const staticRouter: RouteRecordRaw[] = [
         path: "shaders_1",
         name: "旷息之野神庙铁球",
         component: () => import("../hook/2.12_shaders_1/index.vue"),
-        meta: { hidden: true },
+        // meta: { hidden: true },
       },
       {
         path: "shaders_2",
-        name: "神庙光环",
+        name: "瑞克和莫蒂",
         component: () => import("../hook/2.12_shaders_2/index.vue"),
         // meta: { hidden: true },
       },

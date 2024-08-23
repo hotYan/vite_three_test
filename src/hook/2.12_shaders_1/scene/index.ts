@@ -34,6 +34,6 @@ scene.add(ambient);
 // scene.add(pointLight);
 
 // AxesHelper：辅助观察的坐标系
-const axesHelper = new THREE.AxesHelper(250);
-scene.add(axesHelper);
+// const axesHelper = new THREE.AxesHelper(250);
+// scene.add(axesHelper);
 export { scene };
