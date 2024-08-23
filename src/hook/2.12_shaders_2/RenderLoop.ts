@@ -79,11 +79,17 @@ const clock = new THREE.Clock();
 const render = (date = Date.now()) => {
   updateShaderMaterial(date);
   // bloomComposer && bloomComposer.render();
+  // 传送门
+
   renderer.clear();
   camera.layers.set(1);
+  bloomComposer && bloomComposer.render();
 
   renderer.clearDepth();
   camera.layers.set(0);
+  renderer.autoClearColor = true;
+  renderer.setClearColor(0x000000, 0);
+  renderer.render(scene, camera);
 
   const elapsedTime = clock.getElapsedTime();
   const ghost1Angle = elapsedTime * 0.5;
@@ -96,8 +102,7 @@ const render = (date = Date.now()) => {
   portal && portal.scale.set(scale, scale, scale);
 
   // bloomComposer &&
-  renderer.render(scene, camera);
-  bloomComposer.render();
+
   requestAnimationFrame(render);
 };
 render();
