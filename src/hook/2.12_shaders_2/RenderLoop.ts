@@ -72,8 +72,9 @@ const initGUI = () => {
   colors.addColor(options, "color4").name("layer4");
   colors.addColor(options, "color5").name("layer5");
   colors.open();
+  return gui;
 };
-initGUI();
+const gui = initGUI();
 
 const clock = new THREE.Clock();
 const render = (date = Date.now()) => {
@@ -106,4 +107,4 @@ const render = (date = Date.now()) => {
   requestAnimationFrame(render);
 };
 render();
-export { renderer, resizeFn };
+export { renderer, resizeFn, gui };

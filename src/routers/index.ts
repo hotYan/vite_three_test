@@ -11,11 +11,13 @@ const staticRouter: RouteRecordRaw[] = [
         path: "earth",
         name: "3D地球",
         component: () => import("../views/Earth/index.vue"),
+        meta: { hidden: true },
       },
       {
         path: "map",
         name: "平面地图",
         component: () => import("../hook/2.5.1_map/index.vue"),
+        // meta: { hidden: true },
       },
       {
         path: "flame",
@@ -27,6 +29,7 @@ const staticRouter: RouteRecordRaw[] = [
         path: "tack",
         name: "太阳系轨道",
         component: () => import("../hook/2.6_tack/index.vue"),
+        meta: { hidden: true },
       },
       {
         path: "fire",
@@ -62,6 +65,7 @@ const staticRouter: RouteRecordRaw[] = [
         path: "modelchange",
         name: "模型切换",
         component: () => import("../hook/2.10_change/index.vue"),
+        meta: { hidden: true },
       },
       {
         path: "modelchange_1",
@@ -79,7 +83,7 @@ const staticRouter: RouteRecordRaw[] = [
         path: "shaders",
         name: "飘动的旗帜",
         component: () => import("../hook/2.12_shaders/index.vue"),
-        meta: { hidden: true },
+        // meta: { hidden: true },
       },
       {
         path: "shaders_1",
@@ -91,6 +95,12 @@ const staticRouter: RouteRecordRaw[] = [
         path: "shaders_2",
         name: "瑞克和莫蒂",
         component: () => import("../hook/2.12_shaders_2/index.vue"),
+        // meta: { hidden: true },
+      },
+      {
+        path: "radar",
+        name: "雷达扫描",
+        component: () => import("../hook/2.13_radar/index.vue"),
         // meta: { hidden: true },
       },
     ],

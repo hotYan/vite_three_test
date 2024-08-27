@@ -25,8 +25,8 @@
 
 // 11 
 // varying float vElevation;
-// uniform sampler2D uTexture;
 // varying vec2 vUv;
+// uniform sampler2D uTexture;
 // void main() {
 //   vec4 textureColor = texture2D(uTexture, vUv);
 //   textureColor.rgb *= vElevation * 2.0 + 0.5;

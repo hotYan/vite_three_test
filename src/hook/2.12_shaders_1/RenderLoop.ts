@@ -66,4 +66,4 @@ const render = () => {
   requestAnimationFrame(render);
 };
 render();
-export { renderer, resizeFn };
+export { renderer, resizeFn, gui };
