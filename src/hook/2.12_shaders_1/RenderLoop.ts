@@ -61,7 +61,7 @@ const resizeFn = () => {
 const render = () => {
   mesh && (mesh.rotation.y += 0.01);
   mesh && (mesh.rotation.x += 0.005);
-  renderer.render(scene, camera);
+  // renderer.render(scene, camera);
   bloomComposer && bloomComposer.render(); //在 renderer.render后面调用才有效
   requestAnimationFrame(render);
 };

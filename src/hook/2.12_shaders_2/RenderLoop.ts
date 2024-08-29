@@ -79,8 +79,6 @@ const gui = initGUI();
 const clock = new THREE.Clock();
 const render = (date = Date.now()) => {
   updateShaderMaterial(date);
-  // bloomComposer && bloomComposer.render();
-  // 传送门
 
   renderer.clear();
   camera.layers.set(1);
@@ -88,8 +86,6 @@ const render = (date = Date.now()) => {
 
   renderer.clearDepth();
   camera.layers.set(0);
-  renderer.autoClearColor = true;
-  renderer.setClearColor(0x000000, 0);
   renderer.render(scene, camera);
 
   const elapsedTime = clock.getElapsedTime();

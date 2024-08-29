@@ -45,7 +45,7 @@ float fbm(vec2 x) {
   return v;
 }
 
-  float setOpacity(float r, float g, float b, float tonethreshold) {
+float setOpacity(float r, float g, float b, float tonethreshold) {
   float tone = (r + g + b) / 3.0;
   float alpha = 1.0;
   if(tone<tonethreshold) {
